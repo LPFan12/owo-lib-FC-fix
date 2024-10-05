@@ -52,7 +52,7 @@ public class TranslationStorageMixin implements TextLanguage {
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onInit(Map<String, String> translations, boolean rightToLeft, CallbackInfo ci) {
         this.owo$textMap = owo$buildingTextMap;
-        owo$buildingTextMap = null;
+        owo$buildingTextMap = new HashMap<>();
     }
 
     @Inject(method = "hasTranslation", at = @At("HEAD"), cancellable = true)
